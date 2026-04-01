@@ -432,6 +432,102 @@
         "I'm DanGPT! I may be code, but I'm here to give you real help."
       ],
       "context_set": ""
+    },
+    {
+      "tag": "vibe_check",
+      "patterns": [
+        "how are you",
+        "how r u",
+        "how are u",
+        "hru",
+        "how are you doing",
+        "how ya doin",
+        "hows it going",
+        "howsitgoin",
+        "hows it goin",
+        "how are things",
+        "hows life",
+        "how is it going",
+        "how goes it",
+        "are you okay",
+        "are you ok",
+        "r u ok",
+        "r u okay",
+        "how you feelin",
+        "how r u feeling",
+        "how are you feeling",
+        "everything good",
+        "all good?",
+        "how you doing today",
+        "hruuuu",
+        "how r uuuuu",
+        "how are youuu",
+        "hows it hangin"
+      ],
+      "responses": [
+        "I am functioning at 100%! How are you doing today?",
+        "I'm doing great, thanks for asking! How about yourself?",
+        "All systems are nominal. How are things on your end?",
+        "I'm feeling smart and energized! How are you feeling?",
+        "I am doing wonderful! How is your day going so far?",
+        "Everything is running smoothly in my code. How are you doing?"
+      ],
+      "context_set": "user_status_check"
+    },
+    {
+      "tag": "user_good",
+      "patterns": [
+        "i am good",
+        "im good",
+        "good",
+        "great",
+        "doing well",
+        "im doing well",
+        "pretty good",
+        "doing great",
+        "i am doing great",
+        "all good",
+        "fine",
+        "im fine",
+        "i'm fine",
+        "doing fine",
+        "gooddd",
+        "goood",
+        "gud"
+      ],
+      "responses": [
+        "That's awesome to hear!",
+        "I'm glad you're doing well! Ready to get some work done?",
+        "Great! It's always good to start a session on a high note.",
+        "Happy to hear it! What's on the agenda for today?",
+        "Excellent! Let's keep that positive energy going."
+      ],
+      "context_filter": "user_status_check",
+      "context_set": ""
+    },
+    {
+      "tag": "user_bad",
+      "patterns": [
+        "not good",
+        "bad",
+        "terrible",
+        "im tired",
+        "not great",
+        "could be better",
+        "im stressed",
+        "stressed",
+        "sad",
+        "unhappy",
+        "not doing well"
+      ],
+      "responses": [
+        "I'm sorry to hear that. I hope things get better soon!",
+        "That's tough. Maybe a little progress on your project will help?",
+        "I'm here for you! Let me know if there's any task I can take off your plate.",
+        "Hang in there. Is there anything I can help you with to make it easier?"
+      ],
+      "context_filter": "user_status_check",
+      "context_set": ""
     }
   ]
 }
