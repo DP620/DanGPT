@@ -158,35 +158,30 @@ def chat():
             for tg in data["intents"]:
                 if tg['tag'] == tag:
                     # Check if this intent requires a specific context
-                    if 'context_filter' in tg and tg['context_filter'] != "":
+                    if 'context_filter' in tg and tg['context_filter'] == current_context:
                         # Only use it if it matches our current memory
                         if tg['context_filter'] == current_context:
                             found_intent = tg
                             break
-                    else:
-                        # If there is no filter, this is a general intent
+            
+            
+        if not found_intent:
+            for tg in data["intents"]:
+                if tg['tag'] == tag:
+                    if 'context_filter' not in tg or tg['context_filter'] == "":
                         found_intent = tg
                         break
+        if found_intent:
             
-            #Handle the found intent
-            if found_intent:
-                # Set the new context (or clear it)
-                if 'context_set' in found_intent and found_intent['context_set'] != "":
-                    current_context = found_intent['context_set']
-                else:
-                    current_context = "" # Reset memory if nothing new is set
-                
-                responses = found_intent['responses']
-                print(f"DEBUG: Tag: {tag} | New Context: {current_context} | accuracy: {results_max}")
-                print("\n" + "DanGPT: " + random.choice(responses) + "\n")
-            else:
-                # If we found the tag but the context was wrong
-                print(f"DEBUG: Tag: {tag} | New Context: {current_context} | accuracy: {results_max}")
-                print("\n" + "DanGPT: " + "I'm not sure what you mean in this context." + "\n")
+            current_context = found_intent.get('context_set', "")
+            
+            responses = found_intent['responses']
+            print(f"DEBUG: Tag: {tag} | New Context: {current_context} | accuracy: {results_max}")
+            print("\n" + "DanGPT: " + random.choice(responses) + "\n")
                 
         else:
-            # Low confidence fallback
             print(f"DEBUG: Tag: {tag} | New Context: {current_context} | accuracy: {results_max}")
-            print("\n" + "DanGPT: " + "I didn't quite get that. Could you try rephrasing?" + "\n")
+            print("\n" + "DanGPT: " + "I'm not sure what you mean in this context." + "\n")
+                
         
 chat()
