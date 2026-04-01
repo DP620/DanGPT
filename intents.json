@@ -520,6 +520,20 @@
       ],
       "context_filter": "user_status_check",
       "context_set": ""
+    },
+    {
+      "tag": "love",
+      "patterns": [
+        "I love you",
+        "ily",
+        "mwahhh"
+      ],
+      "responses": [
+        "love you too bud!",
+        "love you too budyy!",
+        "love you too friend!"
+      ],
+      "context_set": ""
     }
   ]
 }
